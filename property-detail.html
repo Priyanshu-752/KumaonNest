@@ -3,78 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Property Details</title>
+    <title>Property Detail | KumaonNest</title>
+    <meta name="description" content="Property details, interior gallery, exterior gallery, specifications, and enquiry form.">
+    <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">PROPERTIES</a>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="KumaonNest home">
+            <span>Kumaon</span>
+            <span>Nest</span>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+            <a href="index.html#properties">Properties</a>
+            <a href="index.html#interiors">Interiors</a>
+            <a href="index.html#exteriors">Exteriors</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+        </button>
+    </header>
 
-    <div class="mobile-menu">
-        <a href="index.html">Home</a>
+    <div class="mobile-menu" aria-hidden="true">
         <a href="index.html#properties">Properties</a>
+        <a href="index.html#interiors">Interiors</a>
+        <a href="index.html#exteriors">Exteriors</a>
         <a href="#contact">Contact</a>
     </div>
 
-    <main class="detail-page">
-        <div class="gallery-container">
-            <div class="main-image">
-                <img id="mainImage" src="" alt="Property">
-                <button class="gallery-nav prev" aria-label="Previous image">&lt;</button>
-                <button class="gallery-nav next" aria-label="Next image">&gt;</button>
+    <main class="detail-page" data-property-detail>
+        <section class="detail-hero">
+            <div class="detail-gallery">
+                <img id="mainImage" src="" alt="">
+                <button class="gallery-nav previous" type="button" aria-label="Previous image">&lsaquo;</button>
+                <button class="gallery-nav next" type="button" aria-label="Next image">&rsaquo;</button>
+                <span class="detail-counter" id="detailCounter"></span>
             </div>
-            <div class="thumbnail-strip">
-                <!-- Thumbnails will be dynamically loaded -->
+            <div class="detail-summary">
+                <a class="back-link" href="index.html#properties">&larr; All properties</a>
+                <p class="eyebrow" id="propertyType"></p>
+                <h1 id="propertyTitle"></h1>
+                <p class="detail-location" id="propertyLocation"></p>
+                <p class="detail-price" id="propertyPrice"></p>
+                <div class="detail-specs" aria-label="Property specifications">
+                    <span><strong id="bedrooms"></strong> Beds</span>
+                    <span><strong id="bathrooms"></strong> Baths</span>
+                    <span><strong id="area"></strong> Sq ft</span>
+                </div>
+                <a class="primary-button" href="#contact">Enquire about this property</a>
             </div>
-        </div>
+        </section>
 
-        <div class="property-details">
-            <h1 id="propertyTitle">Property Name</h1>
-            <p class="location" id="propertyLocation">Location</p>
-            <p class="price" id="propertyPrice">$0,000,000</p>
+        <section class="gallery-tabs" aria-label="Gallery filters">
+            <button class="tab-button active" type="button" data-gallery-filter="all">All</button>
+            <button class="tab-button" type="button" data-gallery-filter="interior">Interior</button>
+            <button class="tab-button" type="button" data-gallery-filter="exterior">Exterior</button>
+        </section>
 
-            <div class="specs">
-                <div class="spec-item">
-                    <span class="spec-value" id="bedrooms">0</span>
-                    <span class="spec-label">Bedrooms</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-value" id="bathrooms">0</span>
-                    <span class="spec-label">Bathrooms</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-value" id="area">0</span>
-                    <span class="spec-label">Sq Ft</span>
-                </div>
-            </div>
+        <section class="thumbnail-strip" aria-label="Property thumbnails"></section>
 
+        <section class="detail-content">
             <div class="description">
-                <h2>About This Property</h2>
-                <p id="propertyDescription">Property description will be loaded here.</p>
+                <p class="eyebrow">About the home</p>
+                <h2>Designed around everyday comfort and a strong first impression.</h2>
+                <p id="propertyDescription"></p>
             </div>
-
             <div class="features">
-                <h2>Features</h2>
-                <ul id="featuresList">
-                    <!-- Features will be dynamically loaded -->
-                </ul>
+                <p class="eyebrow">Highlights</p>
+                <ul id="featuresList"></ul>
             </div>
+        </section>
 
-            <a href="index.html" class="back-link">← Back to Properties</a>
-        </div>
+        <section class="detail-image-grid" id="detailImageGrid" aria-label="Interior and exterior image mix"></section>
 
-        <footer>
-            <p>&copy; 2024 Luxury Properties. All rights reserved.</p>
-        </footer>
+        <section class="contact-section detail-contact" id="contact">
+            <div class="contact-copy">
+                <p class="eyebrow">Private enquiry</p>
+                <h2>Ask for a visit, floor plan, price details, or more photos.</h2>
+                <p id="contactHint">We will include this property in your enquiry.</p>
+            </div>
+            <form class="enquiry-form" data-enquiry-form>
+                <label>
+                    Name
+                    <input type="text" name="name" autocomplete="name" required>
+                </label>
+                <label>
+                    Phone or email
+                    <input type="text" name="contact" autocomplete="email" required>
+                </label>
+                <label>
+                    Property
+                    <input type="text" name="property" id="detailPropertyField" required>
+                </label>
+                <label>
+                    What would you like to know?
+                    <textarea name="message" rows="5" required>Send me more details, pricing, floor plan, and visit timing.</textarea>
+                </label>
+                <button class="primary-button" type="submit">Send enquiry</button>
+                <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
     </main>
+
+    <footer class="site-footer">
+        <p>KumaonNest</p>
+        <p>Completed homes, full galleries, and direct enquiries.</p>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>
