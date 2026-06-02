@@ -1,0 +1,484 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #000;
+    --background-color: #fff;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --border-color: #e0e0e0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--primary-color);
+    transition: 0.3s;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 61px;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 61px);
+    background: var(--background-color);
+    transition: right 0.3s ease;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 30px;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu a {
+    font-size: 24px;
+    color: var(--primary-color);
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: opacity 0.3s;
+}
+
+.mobile-menu a:hover {
+    opacity: 0.6;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+    margin-top: 61px;
+    padding: 20px;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 16px;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+/* Properties Section */
+.properties {
+    padding: 40px 0;
+}
+
+.property-card {
+    margin-bottom: 60px;
+    cursor: pointer;
+}
+
+.property-image {
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.property-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.property-card:hover .property-image img {
+    transform: scale(1.05);
+}
+
+.property-info {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.property-info h2 {
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.property-location {
+    font-size: 14px;
+    color: #999;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.view-details {
+    display: inline-block;
+    padding: 12px 40px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    min-height: 44px;
+    line-height: 20px;
+}
+
+.view-details:hover {
+    background: var(--primary-color);
+    color: var(--background-color);
+}
+
+/* Property Detail Page */
+.detail-page {
+    margin-top: 61px;
+}
+
+.gallery-container {
+    position: relative;
+    background: #000;
+}
+
+.main-image {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.gallery-nav:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.gallery-nav.prev {
+    left: 10px;
+}
+
+.gallery-nav.next {
+    right: 10px;
+}
+
+.thumbnail-strip {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+    background: #000;
+    -webkit-overflow-scrolling: touch;
+}
+
+.thumbnail-strip::-webkit-scrollbar {
+    height: 4px;
+}
+
+.thumbnail-strip::-webkit-scrollbar-thumb {
+    background: #666;
+}
+
+.thumbnail {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+    border: 2px solid transparent;
+}
+
+.thumbnail.active {
+    opacity: 1;
+    border-color: #fff;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.property-details {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.property-details h1 {
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.location {
+    font-size: 14px;
+    color: #999;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.specs {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 40px;
+}
+
+.spec-item {
+    text-align: center;
+}
+
+.spec-value {
+    display: block;
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.spec-label {
+    font-size: 12px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.description, .features {
+    margin-bottom: 40px;
+}
+
+.description h2, .features h2 {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.description p {
+    line-height: 1.8;
+    color: #666;
+}
+
+.features ul {
+    list-style: none;
+}
+
+.features li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--light-gray);
+    color: #666;
+}
+
+.back-link {
+    display: inline-block;
+    margin: 40px 0;
+    color: var(--primary-color);
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 14px;
+    transition: opacity 0.3s;
+}
+
+.back-link:hover {
+    opacity: 0.6;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid var(--border-color);
+    color: #999;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .property-info h2 {
+        font-size: 36px;
+    }
+
+    .property-details h1 {
+        font-size: 42px;
+    }
+
+    .main-image {
+        height: 80vh;
+    }
+
+    .thumbnail {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .mobile-menu {
+        position: static;
+        flex-direction: row;
+        height: auto;
+        width: auto;
+        padding: 0;
+        gap: 40px;
+        background: transparent;
+    }
+
+    .mobile-menu a {
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 64px;
+    }
+
+    .properties {
+        padding: 60px 40px;
+    }
+
+    .property-card {
+        margin-bottom: 80px;
+    }
+
+    .property-image {
+        height: 90vh;
+    }
+
+    .property-info {
+        padding: 40px;
+    }
+
+    .property-info h2 {
+        font-size: 42px;
+    }
+
+    .gallery-nav {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .gallery-nav.prev {
+        left: 20px;
+    }
+
+    .gallery-nav.next {
+        right: 20px;
+    }
+
+    .property-details {
+        padding: 60px 40px;
+    }
+}

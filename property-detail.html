@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">PROPERTIES</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="index.html#properties">Properties</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <main class="detail-page">
+        <div class="gallery-container">
+            <div class="main-image">
+                <img id="mainImage" src="" alt="Property">
+                <button class="gallery-nav prev" aria-label="Previous image">&lt;</button>
+                <button class="gallery-nav next" aria-label="Next image">&gt;</button>
+            </div>
+            <div class="thumbnail-strip">
+                <!-- Thumbnails will be dynamically loaded -->
+            </div>
+        </div>
+
+        <div class="property-details">
+            <h1 id="propertyTitle">Property Name</h1>
+            <p class="location" id="propertyLocation">Location</p>
+            <p class="price" id="propertyPrice">$0,000,000</p>
+
+            <div class="specs">
+                <div class="spec-item">
+                    <span class="spec-value" id="bedrooms">0</span>
+                    <span class="spec-label">Bedrooms</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-value" id="bathrooms">0</span>
+                    <span class="spec-label">Bathrooms</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-value" id="area">0</span>
+                    <span class="spec-label">Sq Ft</span>
+                </div>
+            </div>
+
+            <div class="description">
+                <h2>About This Property</h2>
+                <p id="propertyDescription">Property description will be loaded here.</p>
+            </div>
+
+            <div class="features">
+                <h2>Features</h2>
+                <ul id="featuresList">
+                    <!-- Features will be dynamically loaded -->
+                </ul>
+            </div>
+
+            <a href="index.html" class="back-link">← Back to Properties</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Luxury Properties. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
